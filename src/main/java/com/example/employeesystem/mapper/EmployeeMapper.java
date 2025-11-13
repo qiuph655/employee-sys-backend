@@ -11,6 +11,6 @@ public interface EmployeeMapper {
 
     List<Employee> selectAllEmployee();
 
-
+    Employee findEmployeeById(Long id);
 
 }

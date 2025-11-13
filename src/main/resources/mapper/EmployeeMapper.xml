@@ -17,4 +17,8 @@
     <select id="selectAllEmployee" resultMap="employeeMap">
         SELECT * FROM employee e join department d on e.department_id=d.department_id
     </select>
+    <select id="findEmployeeById" parameterType="Long" resultMap="employeeMap">
+        SELECT * FROM employee e join department d on e.department_id=d.department_id
+        where e.employee_id = #{id}
+    </select>
 </mapper>
