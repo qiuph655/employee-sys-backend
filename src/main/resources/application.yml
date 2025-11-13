@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/employee_sys?useSSL=false&serverTimezone=Asia/Tokyo
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.employeesystem.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+logging:
+  file:
+    name: logs/app.log

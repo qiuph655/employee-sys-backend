@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.employeesystem.mapper.EmployeeMapper">
+    <resultMap id="employeeMap" type="employee">
+        <id property="employeeId" column="employee_id"/>
+        <id property="name" column="name"/>
+        <id property="gender" column="gender"/>
+        <id property="hireDate" column="hire_date"/>
+        <id property="salary" column="salary"/>
+        <association property="department" javaType="department">
+            <id property="departmentId" column="department_id"/>
+            <id property="departmentName" column="department_name"/>
+            <id property="location" column="location"/>
+        </association>
+    </resultMap>
+    <select id="selectAllEmployee" resultMap="employeeMap">
+        SELECT * FROM employee e join department d on e.department_id=d.department_id
+    </select>
+</mapper>

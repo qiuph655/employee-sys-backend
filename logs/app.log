@@ -1,0 +1,16 @@
+2025-11-12 16:29:15 [main] INFO  c.e.e.service.EmployeeServiceTest - Starting EmployeeServiceTest using Java 21.0.5 with PID 253684 (started by eden in C:\Users\eden\IdeaProjects\employee-system)
+2025-11-12 16:29:15 [main] DEBUG c.e.e.service.EmployeeServiceTest - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-12 16:29:15 [main] INFO  c.e.e.service.EmployeeServiceTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-12 16:29:16 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-11-12 16:29:16 [main] INFO  c.e.e.service.EmployeeServiceTest - Started EmployeeServiceTest in 1.709 seconds (process running for 2.591)
+2025-11-12 16:29:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-12 16:29:17 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@72ceafeb
+2025-11-12 16:29:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-12 16:29:17 [main] DEBUG c.e.e.m.E.selectAllEmployee - ==>  Preparing: SELECT * FROM employee e join department d on e.department_id=d.department_id
+2025-11-12 16:29:17 [main] DEBUG c.e.e.m.E.selectAllEmployee - ==> Parameters: 
+2025-11-12 16:29:17 [main] DEBUG c.e.e.m.E.selectAllEmployee - <==      Total: 3
+2025-11-12 16:29:17 [main] WARN  EmployeeServiceTest - tom
+2025-11-12 16:29:17 [main] WARN  EmployeeServiceTest - jack
+2025-11-12 16:29:17 [main] WARN  EmployeeServiceTest - mike
+2025-11-12 16:29:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-12 16:29:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
