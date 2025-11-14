@@ -13,12 +13,10 @@ public interface EmployeeMapper {
 
     Employee findEmployeeById(Long id);
 
-    int insert(Employee employee);
+    void insert(Employee employee);
 
-    int update(Employee employee);
+    void update(Employee employee);
 
-    int delete(Long id);
-
-
+    int delete(Long employeeId);
 
 }

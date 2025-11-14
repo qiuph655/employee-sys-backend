@@ -33,10 +33,13 @@
         where employee_id = #{employeeId}
     </update>
     <insert id="insert" parameterType="employee" useGeneratedKeys="true" keyProperty="employeeId" keyColumn="employee_id">
-        insert into employee( NAME, department_id, hire_date, salary, gender)
+        insert into employee(NAME, department_id, hire_date, salary, gender)
         values (
                    #{name}, #{department.departmentId},#{hireDate},#{salary}, #{gender}
                )
     </insert>
+    <delete id="delete" parameterType="Long">
+        delete from employee where employee_id = #{employeeId}
+    </delete>
 
 </mapper>

@@ -4,6 +4,7 @@ import com.example.employeesystem.common.R;
 import com.example.employeesystem.entity.Employee;
 import com.example.employeesystem.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,5 +27,20 @@ public class EmployeeController {
         Employee employee1 = employeeService.updateEmployee(employee);
         return ResponseEntity.ok(employee1);
     }
+    @PostMapping("/insert")
+    public ResponseEntity<Employee> insertEmployee(
+            @RequestBody Employee employee) {
+        Employee employee1 = employeeService.insertEmployee(employee);
+        return ResponseEntity.ok(employee1);
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteEmployee(@PathVariable Long id) {
+        employeeService.deleteEmployee(id);
+       return ResponseEntity.ok("員工id"+id+"刪除成功");
+
+
+    }
+
+
 
 }

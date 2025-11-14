@@ -2,6 +2,7 @@ package com.example.employeesystem.service;
 
 import com.example.employeesystem.entity.Department;
 import com.example.employeesystem.entity.Employee;
+import com.example.employeesystem.mapper.EmployeeMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +18,9 @@ class EmployeeServiceTest {
 
     @Autowired
     private EmployeeService employeeService;
+
+    @Autowired
+    private EmployeeMapper employeeMapper;
 
     @Test
     void testFindAllEmployees() {
@@ -42,6 +46,11 @@ class EmployeeServiceTest {
         Employee employee1 = employeeService.updateEmployee(employee);
         logger.warning(employee1.toString());
         assertTrue(employee1.getName().equals("田中"));
+    }
+    @Test
+    void testDeleteEmployee() {
+      int result = employeeMapper.delete(6L);
+      assertTrue(result == 1);
     }
 
 }

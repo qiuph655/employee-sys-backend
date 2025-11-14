@@ -14,6 +14,8 @@ public class EmployeeService {
     @Autowired
     private EmployeeMapper employeeMapper;
 
+
+
     @Autowired
     private DepartmentMapper departmentMapper;
 
@@ -41,4 +43,13 @@ public class EmployeeService {
         employeeMapper.insert(employee);
         return employeeMapper.findEmployeeById(employee.getEmployeeId());
     }
+
+    public void deleteEmployee(Long id) {
+        Employee dEmployee =  employeeMapper.findEmployeeById(id);
+        if (dEmployee == null) {
+            throw new NotFoundException("Employee with id " + id+ " not found");
+        }
+        employeeMapper.delete(id);
+    }
+
 }
