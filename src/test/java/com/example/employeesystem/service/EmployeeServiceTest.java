@@ -1,5 +1,6 @@
 package com.example.employeesystem.service;
 
+import com.example.employeesystem.entity.Department;
 import com.example.employeesystem.entity.Employee;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,23 @@ class EmployeeServiceTest {
             logger.warning(employee.getName());
         }
         assertTrue(employees.size() > 0);
+    }
+
+    @Test
+    void testFindEmployeeById() {
+        Employee employee = employeeService.getEmployeeById(1L);
+        logger.warning(employee.getName());
+        assertTrue(employee.getName().equals("tom"));
+    }
+    @Test
+    void testUpdateEmployee() {
+        Employee employee = new Employee();
+        employee.setEmployeeId(5L);
+        employee.setName("田中");
+
+        Employee employee1 = employeeService.updateEmployee(employee);
+        logger.warning(employee1.toString());
+        assertTrue(employee1.getName().equals("田中"));
     }
 
 }

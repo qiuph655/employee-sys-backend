@@ -21,4 +21,16 @@
         SELECT * FROM employee e join department d on e.department_id=d.department_id
         where e.employee_id = #{id}
     </select>
+    <update id="update" parameterType="employee">
+        update employee
+        <set>
+            <if test="name != null">name = #{name}</if>
+            <if test="gender != null">gender = #{gender}</if>
+            <if test="hireDate != null">hire_date = #{hireDate}</if>
+            <if test="salary != null">salary = #{salary}</if>
+            <if test="department != null">department_id = #{departmentId}</if>
+        </set>
+        where employee_id = #{employeeId}
+    </update>
+
 </mapper>
