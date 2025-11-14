@@ -26,11 +26,5 @@ public class EmployeeController {
         Employee employee1 = employeeService.updateEmployee(employee);
         return ResponseEntity.ok(employee1);
     }
-    @PostMapping("/insert")
-    public ResponseEntity<Employee> insert(
-            @RequestBody Employee employee) {
-        Employee employee1 = employeeService.insertEmployee(employee);
-        return ResponseEntity.ok(employee1);
-    }
 
 }
