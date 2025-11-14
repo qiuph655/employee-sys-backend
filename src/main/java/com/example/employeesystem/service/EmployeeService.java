@@ -2,7 +2,6 @@ package com.example.employeesystem.service;
 
 import com.example.employeesystem.entity.Employee;
 import com.example.employeesystem.exception.NotFoundException;
-import com.example.employeesystem.mapper.DepartmentMapper;
 import com.example.employeesystem.mapper.EmployeeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +12,6 @@ import java.util.List;
 public class EmployeeService {
     @Autowired
     private EmployeeMapper employeeMapper;
-    @Autowired
-    private DepartmentMapper departmentMapper;
 
     public List<Employee> getAllEmployees() {
         return employeeMapper.selectAllEmployee();
@@ -31,14 +28,6 @@ public class EmployeeService {
         }
 
         employeeMapper.update(employee);
-        return employeeMapper.findEmployeeById(employee.getEmployeeId());
-    }
-
-    public Employee insertEmployee(Employee employee) {
-        if(!departmentMapper.existById(employee.getDepartment().getDepartmentId())) {
-            throw new NotFoundException("Department with id " + employee.getDepartment().getDepartmentId() + " not found");
-        }
-        employeeMapper.insert(employee);
         return employeeMapper.findEmployeeById(employee.getEmployeeId());
     }
 }

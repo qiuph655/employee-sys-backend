@@ -43,17 +43,5 @@ class EmployeeServiceTest {
         logger.warning(employee1.toString());
         assertTrue(employee1.getName().equals("田中"));
     }
-    @Test
-    void testInsertEmployee() {
-        Department department = new Department();
-        department.setDepartmentId(1L);
-        Employee employee = new Employee();
-        employee.setDepartment(department);
-        employee.setName("田中檸檬");
-        employee.setGender('女');
-        Employee employee1 = employeeService.insertEmployee(employee);
-        logger.warning(employee1.toString());
-
-    }
 
 }
