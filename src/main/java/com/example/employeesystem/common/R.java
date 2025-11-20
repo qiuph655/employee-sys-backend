@@ -8,6 +8,8 @@ public class R<T> {
     private String message;
     private T data;
 
+
+
     public static <T> R<T> ok(T data) {
         R<T> r = new R<>();
         r.code = 0;
@@ -23,6 +25,14 @@ public class R<T> {
         r.data = null;
         return r;
     }
+    public static <T> R<T> fail(int code, T data) {
+        R<T> r = new R<>();
+        r.code = code;
+        r.data = data;
+        return r;
+    }
+
+
 
     public int getCode() {
         return code;

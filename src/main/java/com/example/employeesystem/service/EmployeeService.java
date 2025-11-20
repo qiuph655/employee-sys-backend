@@ -1,5 +1,6 @@
 package com.example.employeesystem.service;
 
+import com.example.employeesystem.entity.Department;
 import com.example.employeesystem.entity.Employee;
 import com.example.employeesystem.exception.NotFoundException;
 import com.example.employeesystem.mapper.DepartmentMapper;
@@ -37,7 +38,9 @@ public class EmployeeService {
     }
 
     public Employee insertEmployee(Employee employee) {
-        if(!departmentMapper.existById(employee.getDepartment().getDepartmentId())) {
+        Department department = new Department();
+        department.setDepartmentId(employee.getDepartment().getDepartmentId());
+        if(!departmentMapper.isExisted(department)) {
             throw new NotFoundException("Department with id " + employee.getDepartment().getDepartmentId() + " not found");
         }
         employeeMapper.insert(employee);

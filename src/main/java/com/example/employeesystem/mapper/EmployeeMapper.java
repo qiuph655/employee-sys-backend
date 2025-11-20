@@ -19,4 +19,5 @@ public interface EmployeeMapper {
 
     int delete(Long employeeId);
 
+    int countByDepartmentId(Long departmentId);
 }

@@ -41,5 +41,9 @@
     <delete id="delete" parameterType="Long">
         delete from employee where employee_id = #{employeeId}
     </delete>
+    <select id="countByDepartmentId" parameterType="Long">
+        select count(*) from employee where department_id= #{departmentId}
+
+    </select>
 
 </mapper>

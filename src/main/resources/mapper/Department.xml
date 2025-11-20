@@ -2,7 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.employeesystem.mapper.DepartmentMapper">
-    <select id="existById" parameterType="Long">
-        select count(*) from department where department_id= #{departmentId}
+    <select id="isExisted" parameterType="department">
+        select count(*) from department where department_name= #{departmentName}
+        and location = #{location}
     </select>
+    <select id="findAll">
+        select * from department
+    </select>
+    <select id="getById" parameterType="Long" resultType="department">
+        select * from department where department_id = #{departmentId}
+    </select>
+    <insert id="addDepartment" parameterType="department"  useGeneratedKeys="true" keyProperty="departmentId" keyColumn="department_id">
+        INSERT INTO department (department_name,location) VALUES(
+            #{departmentName},#{location}
+            )
+    </insert>
+    <update id="update">
+        update department
+        <set>
+            <if test="department.departmentName != null">
+                department_name = #{department.departmentName},
+            </if>
+            <if test="department.location != null">
+                location = #{department.location},
+            </if>
+        </set>
+        where department_id = #{id}
+    </update>
+
 </mapper>

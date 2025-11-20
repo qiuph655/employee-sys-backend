@@ -1,6 +1,8 @@
 package com.example.employeesystem.exception;
 
 
+import org.springframework.http.HttpStatus;
+
 public enum ErrorCode {
 
     SUCCESS(0, "Success"),
@@ -8,6 +10,8 @@ public enum ErrorCode {
     // 4xx client errors
     BAD_REQUEST(400, "Bad request"),
     NOT_FOUND(404, "Resource not found"),
+    CONFLICT(409, "Conflict"),
+
     VALIDATION_ERROR(422, "Validation failed"),
 
     // 5xx server errors

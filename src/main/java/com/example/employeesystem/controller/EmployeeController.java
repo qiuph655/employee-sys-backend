@@ -37,8 +37,6 @@ public class EmployeeController {
     public ResponseEntity<?> deleteEmployee(@PathVariable Long id) {
         employeeService.deleteEmployee(id);
        return ResponseEntity.ok("員工id"+id+"刪除成功");
-
-
     }
 
 
